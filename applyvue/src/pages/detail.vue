@@ -25,31 +25,31 @@
         products: [
           {
             name: '数据统计',
-            path: 'count',
+            path: '/ui/detail/count',
             icon: require('../assets/images/1.png'),
             active: false
           },
           {
             name: '数据预测',
-            path: 'forecast',
+            path: '/ui/detail/forecast',
             active: false
           },
           {
             name: '流量分析',
-            path: 'analysis',
+            path: '/ui/detail/analysis',
             active: false
           },
           {
             name: '广告发布',
-            path: 'publish',
+            path: '/ui/detail/publish',
             active: false
           }
         ],
         imgMap: {
-          '/detail/count': require("../assets/images/1.png"),
-          '/detail/forecast': require("../assets/images/2.png"),
-          '/detail/analysis': require("../assets/images/3.png"),
-          '/detail/publish': require("../assets/images/4.png")
+          '/ui/detail/count': require("../assets/images/1.png"),
+          '/ui/detail/forecast': require("../assets/images/2.png"),
+          '/ui/detail/analysis': require("../assets/images/3.png"),
+          '/ui/detail/publish': require("../assets/images/4.png")
         }
       }
     },

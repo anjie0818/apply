@@ -41,7 +41,7 @@
             <h2>{{ item.title }}</h2>
             <p>{{ item.description }}</p>
             <div class="index-board-button">
-              <router-link class="button" :to="{path: 'detail/' + item.toKey}">立即购买</router-link>
+              <router-link class="button" :to="{path: 'ui/detail/' + item.toKey}">立即购买</router-link>
             </div>
           </div>
         </div>
@@ -116,20 +116,20 @@
             list: [
               {
                 name: '数据统计',
-                url: '/detail/count'
+                url: 'ui/detail/count'
               },
               {
                 name: '数据预测',
-                url: '/detail/forecast'
+                url: 'ui/detail/forecast'
               },
               {
                 name: '流量分析',
-                url: '/detail/analysis',
+                url: 'ui/detail/analysis',
                 hot: true
               },
               {
                 name: '广告发布',
-                url: '/detail/publish'
+                url: 'ui/detail/publish'
               }
             ]
           },

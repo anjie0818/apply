@@ -115,21 +115,21 @@
             title: 'PC产品',
             list: [
               {
-                name: '数据统计',
-                url: '/detail/count'
+                name: '数dsdsds据d统计',
+                url: '/ui/detail/count'
               },
               {
                 name: '数据预测',
-                url: '/detail/forecast'
+                url: '/ui/detail/forecast'
               },
               {
                 name: '流量分析',
-                url: '/detail/analysis',
+                url: '/ui/detail/analysis',
                 hot: true
               },
               {
                 name: '广告发布',
-                url: '/detail/publish'
+                url: '/ui/detail/publish'
               }
             ]
           },

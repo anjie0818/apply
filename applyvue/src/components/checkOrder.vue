@@ -43,7 +43,7 @@ export default {
   },
   methods: {
     toOrderList(){
-      this.$router.push({path: '/orderList'})
+      this.$router.push({path: '/ui/orderList'})
     },
     closeCheckDialog(){
       console.log("closeCheckDialog")

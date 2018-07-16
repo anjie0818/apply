@@ -20,13 +20,13 @@ let router=new VueRouter({
             component:IndexPage
           },
           {
-            path:'/orderList',
+            path:'/ui/orderList',
             component:orderList
           },
           {
-            path:'/detail',
+            path:'/ui/detail',
             component:Detail,
-            redirect: '/detail/analysis',
+            redirect: '/ui/detail/analysis',
             children:[
               {path:'analysis',component:DetailAna},
               {path:'count',component:DetailCou},
