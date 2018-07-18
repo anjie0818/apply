@@ -24,7 +24,7 @@
       return {
         products: [
           {
-            name: '数据统计',
+            name: '基本信息',
             path: '/ui/detail/count',
             icon: require('../assets/images/1.png'),
             active: false

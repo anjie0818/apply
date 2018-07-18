@@ -6,6 +6,7 @@ import VueRouter from 'vue-router'
 import IndexPage from  './pages/index.vue'
 import Detail from './pages/detail.vue'
 import DetailAna from './pages/detail/analysis.vue'
+import test from './pages/detail/test.vue'
 import DetailCou from './pages/detail/count.vue'
 import DetailFor from './pages/detail/forecast.vue'
 import DetailPub from './pages/detail/publish.vue'
@@ -18,6 +19,10 @@ let router=new VueRouter({
           {
             path:'/',
             component:IndexPage
+          },
+          {
+            path:'/test',
+            component:test
           },
           {
             path:'/ui/orderList',

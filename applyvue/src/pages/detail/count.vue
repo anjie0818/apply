@@ -1,10 +1,18 @@
 <template>
   <div class="sales-board">
     <div class="sales-board-intro">
-      <h2>数据统计</h2>
+      <h2>基本信息</h2>
       <p>历史资料、科学实验、检验、统计等所获得的和用于科学研究、技术设计、查证、决策等的数值加以统计为解决方案做前期准备。</p>
     </div>
     <div class="sales-board-form">
+      <div class="sales-board-line">
+        <div class="sales-board-line-left">
+          个人照片：
+        </div>
+        <div class="sales-board-line-right">
+
+        </div>
+      </div>
       <div class="sales-board-line">
         <div class="sales-board-line-left">
           产品类型：
@@ -65,7 +73,7 @@
           </td>
           <td>
             <div class="intro-pic">
-              <label>彩票</label>
+              <label>彩1票</label>
             </div>
           </td>
           <td>
@@ -233,7 +241,7 @@
           </td>
           <td>
             <div class="intro-pic">
-              <label>招商加盟</label>
+              <label>招11商加盟</label>
             </div>
           </td>
         </tr>
@@ -246,16 +254,21 @@
 <script>
   import VSelection from '../../components/base/selection'
   import VChooser from '../../components/base/chooser'
+
   export default {
     components: {
       VChooser,
-      VSelection
+      VSelection,
+
+    },
+    methods:{
+
     },
     data () {
       return {
         buyTypes: [
           {
-            label: '红色版',
+            label: '红1色版',
             value: 0
           },
           {
