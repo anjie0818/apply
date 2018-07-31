@@ -72,7 +72,7 @@ export default {
       tableHeads: [
         {
           label: '订单号',
-          key: 'orderId'
+          key: 'orderNo'
         },
         {
           label: '购买产品',
@@ -92,11 +92,11 @@ export default {
         },
         {
           label: '数量',
-          key: 'buyNum'
+          key: 'buyNumber'
         },
         {
           label: '总价',
-          key: 'amount'
+          key: 'price'
         }
       ],
       currentOrder: 'asc',
@@ -129,14 +129,14 @@ export default {
         startDate: this.startDate,
         endDate: this.endDate
       }
-      axios.post('api/getOrderList', reqParams)
+      axios.post('/api/getOrderList', reqParams)
       .then((res) => {
         this.tableData = res.data.list
       }, (err) => {
 
       })
 
-    },
+  },
     changeOrderType (headItem) {
       this.tableHeads.map((item) => {
         item.active = false

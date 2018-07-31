@@ -10,7 +10,7 @@ Mock.mock('api/getNewsList',{
 Mock.mock('api/login',{
     username:'anjie'
 })
-Mock.mock('api/getOrderList',{
+Mock.mock('test/getOrderList',{
   "list": [
     {
       "orderId": "ddj123",
@@ -42,7 +42,7 @@ Mock.mock('api/getOrderList',{
   ]
 
 })
-Mock.mock('api/createOrder',{
+Mock.mock('api/testcreateOrder',{
   orderId:'DC201809010001'
 })
 Mock.mock('api/checkOrder',{
