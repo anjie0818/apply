@@ -2,6 +2,7 @@ package com.anjie.apply.repository;
 
 
 import com.anjie.apply.domain.ProOrder;
+import com.anjie.apply.repository.support.CustomerRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
