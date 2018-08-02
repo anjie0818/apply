@@ -79,7 +79,7 @@ export default {
           key: 'product'
         },
         {
-          label: '版本类型',
+          label: '版本1类型',
           key: 'version'
         },
         {

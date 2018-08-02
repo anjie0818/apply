@@ -83,8 +83,16 @@ export default {
           key: 'version'
         },
         {
+          label: '版本类型',
+          key: 'versionName'
+        },
+        {
           label: '有效时间',
           key: 'period'
+        },
+        {
+          label: '有效时间名称',
+          key: 'periodName'
         },
         {
           label: '购买日期',
