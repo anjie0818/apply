@@ -9,13 +9,13 @@ import javax.persistence.NamedQuery;
  * Created by sang on 2016/12/30.
  */
 
-public class ProOrderWarpper {
+public class ProOrderDetail {
 
     private Long id;
 
     @Override
     public String toString() {
-        return "ProOrderWarpper{" +
+        return "ProOrderDetail{" +
                 "id=" + id +
                 ", orderNo='" + orderNo + '\'' +
                 ", product='" + product + '\'' +
@@ -150,7 +150,7 @@ public class ProOrderWarpper {
     //订单状态
     private String orderStatus;
 
-    public ProOrderWarpper() {
+    public ProOrderDetail() {
     }
 
 
