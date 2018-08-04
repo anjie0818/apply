@@ -13,6 +13,24 @@ public class ProOrderDetail {
 
     private Long id;
 
+    public ProOrderDetail(Long id, String orderNo, String product, String buyType, String price, String buyNumber,
+                          String period, String version, String versionName, String bankId, String buyDate, String orderStatus,String periodName,String buyTypeName) {
+        this.id = id;
+        this.orderNo = orderNo;
+        this.product = product;
+        this.buyType = buyType;
+        this.price = price;
+        this.buyNumber = buyNumber;
+        this.period = period;
+        this.version = version;
+        this.versionName = versionName;
+        this.bankId = bankId;
+        this.buyDate = buyDate;
+        this.orderStatus = orderStatus;
+        this.buyTypeName=buyTypeName;
+        this.periodName=periodName;
+    }
+
     @Override
     public String toString() {
         return "ProOrderDetail{" +
@@ -28,6 +46,9 @@ public class ProOrderDetail {
                 ", bankId='" + bankId + '\'' +
                 ", buyDate='" + buyDate + '\'' +
                 ", orderStatus='" + orderStatus + '\'' +
+                ", buyTypeName='" + buyTypeName + '\'' +
+                ", periodName='" + periodName + '\'' +
+
                 '}';
     }
 
@@ -111,11 +132,11 @@ public class ProOrderDetail {
         this.bankId = bankId;
     }
 
-    public String getBuyDate() {
+    public String getDate() {
         return buyDate;
     }
 
-    public void setBuyDate(String buyDate) {
+    public void setDate(String buyDate) {
         this.buyDate = buyDate;
     }
 
@@ -133,12 +154,33 @@ public class ProOrderDetail {
     private String product;
     //产品类型
     private String buyType;
+
+    public String getBuyTypeName() {
+        return buyTypeName;
+    }
+
+    public void setBuyTypeName(String buyTypeName) {
+        this.buyTypeName = buyTypeName;
+    }
+
+    public String getPeriodName() {
+        return periodName;
+    }
+
+    public void setPeriodName(String periodName) {
+        this.periodName = periodName;
+    }
+
+    private String buyTypeName;
+
     //价格
     private String price;
     //购买数量
     private String buyNumber;
     //有效时间
     private String period;
+    private String periodName;
+
     //产品版本
     private String version;
     private String versionName;

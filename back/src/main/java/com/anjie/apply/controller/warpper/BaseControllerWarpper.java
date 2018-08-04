@@ -2,7 +2,7 @@ package com.anjie.apply.controller.warpper;
 
 
 import com.anjie.apply.domain.ProOrder;
-import com.anjie.apply.domain.ProOrderWarpper;
+import com.anjie.apply.domain.ProOrderDetail;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +27,11 @@ public abstract class BaseControllerWarpper {
     public Object warp() {
         if (this.obj instanceof List) {
             List<ProOrder> list = (List<ProOrder>) this.obj;
-            List<ProOrderWarpper> listw = new ArrayList<>();
+            List<ProOrderDetail> listw = new ArrayList<>();
 
             for (int i=0;i<list.size();i++){
-                ProOrderWarpper proOrderWarpper=warpTheMap(list.get(i));
-                listw.add(proOrderWarpper);
+                ProOrderDetail proOrderDetail=warpTheMap(list.get(i));
+                listw.add(proOrderDetail);
             }
 
             return listw;
@@ -43,6 +43,6 @@ public abstract class BaseControllerWarpper {
         }
     }
 
-    public abstract ProOrderWarpper warpTheMap(ProOrder proOrder);
+    public abstract ProOrderDetail warpTheMap(ProOrder proOrder);
 }
 

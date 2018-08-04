@@ -1,7 +1,7 @@
 package com.anjie.apply.controller.warpper;
 
 import com.anjie.apply.domain.ProOrder;
-import com.anjie.apply.domain.ProOrderWarpper;
+import com.anjie.apply.domain.ProOrderDetail;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,11 +21,20 @@ public class ProOrderW extends BaseControllerWarpper
     }
 
     @Override
-    public ProOrderWarpper warpTheMap(ProOrder proOrder) {
+    public ProOrderDetail warpTheMap(ProOrder proOrder) {
         HashMap<String,String> versionMap=new HashMap<>();
         versionMap.put("0","客户版 ");
         versionMap.put("1","代理商版 ");
         versionMap.put("2","专家版 ");
+        HashMap<String,String> periodMap=new HashMap<>();
+        periodMap.put("0","半年");
+        periodMap.put("1","一年");
+        periodMap.put("2","三年");
+        HashMap<String,String> buyTypeMap=new HashMap<>();
+        buyTypeMap.put("0","入门版");
+        buyTypeMap.put("1","中级版");
+        buyTypeMap.put("2","高级版");
+
         String verionName="";
         //处理version
         String versionStr =proOrder.getVersion();
@@ -34,9 +43,15 @@ public class ProOrderW extends BaseControllerWarpper
              ) {
             verionName+=versionMap.get(version);
         }
-        ProOrderWarpper proOrderWarpper=new ProOrderWarpper();
-        proOrderWarpper.setVersionName(verionName);
-        proOrderWarpper.setOrderNo(proOrder.getOrderNo());
-       return proOrderWarpper;
+        //处理period
+        String period = proOrder.getPeriod();
+        String periodName=periodMap.get(period);
+        //处理buyType
+        String buyType=proOrder.getBuyType();
+        String buyTypeName=buyTypeMap.get(buyType);
+        //包装
+        ProOrderDetail proOrderDetail=new ProOrderDetail(proOrder.getId(),proOrder.getOrderNo(),proOrder.getProduct(),proOrder.getBuyType(),proOrder.getPrice(),proOrder.getBuyNumber(),
+                proOrder.getPeriod(),proOrder.getVersion(),verionName,proOrder.getBankId(),proOrder.getDate(),proOrder.getOrderStatus(),periodName,buyTypeName);
+       return proOrderDetail;
     }
 }

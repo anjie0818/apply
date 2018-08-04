@@ -27,8 +27,28 @@
         <tr>
           <th v-for="head in tableHeads" @click="changeOrderType(head)" :class="{active:head.active}">{{ head.label }}</th>
         </tr>
-        <tr v-for="item in tableData" :key="item.period">
-          <td v-for="head in tableHeads">{{ item[head.key] }}</td>
+        <tr v-for="item in tableData" :key="item.orderNo">
+          <!--<td v-for="head in tableHeads">{{ item[head.key] }}</td>-->
+          <td>{{ item.orderNo }}</td>
+          <td>{{ item.product }}</td>
+          <td>{{ item.buyTypeName }}</td>
+          <td>{{ item.versionName }}</td>
+          <td>{{ item.periodName }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.buyNumber }}</td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.orderStatus }}</td>
+          <td v-if="item.orderStatus == 1">
+            <div class="delete" @click="deleteOrder(item.id)" >
+              删除
+            </div>
+            <div class="delete" >
+              修改
+            </div>
+          </td>
+          <td v-else-if="item.orderStatus ==0">
+            <span>增加</span><span>查询</span>
+          </td>
         </tr>
       </table>
     </div>
@@ -79,8 +99,8 @@ export default {
           key: 'product'
         },
         {
-          label: '版本类型',
-          key: 'version'
+          label: '产品类型',
+          key: 'buyTypeName'
         },
         {
           label: '版本类型',
@@ -88,10 +108,6 @@ export default {
         },
         {
           label: '有效时间',
-          key: 'period'
-        },
-        {
-          label: '有效时间名称',
           key: 'periodName'
         },
         {
@@ -105,6 +121,14 @@ export default {
         {
           label: '总价',
           key: 'price'
+        },
+        {
+          label: '状态',
+          key: 'orderStatus'
+        },
+        {
+          label: '操作',
+          key: 'orderStatus'
         }
       ],
       currentOrder: 'asc',
@@ -117,6 +141,18 @@ export default {
     }
   },
   methods: {
+    deleteOrder( id){
+      console.log(id);
+      let reqParams = {
+        id:id
+      }
+      axios.post('/api/delete', reqParams)
+        .then((res) => {
+          this.getList()
+        }, (err) => {
+
+        })
+    },
     productChange (obj) {
       this.productId = obj.value
       this.getList()
@@ -137,8 +173,9 @@ export default {
         startDate: this.startDate,
         endDate: this.endDate
       }
+//      axios.post('test/getOrderList', reqParams)
       axios.post('/api/getOrderList', reqParams)
-      .then((res) => {
+        .then((res) => {
         this.tableData = res.data.list
       }, (err) => {
 
@@ -167,6 +204,12 @@ export default {
 </script>
 
 <style scoped>
+  .delete {
+    background: #4fc08d;
+    color: #fff;
+    display: inline-block;
+    padding: 5px 10px;
+  }
 .order-wrap {
   width: 1200px;
   min-height: 800px;

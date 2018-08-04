@@ -25,10 +25,15 @@ public class ProOrderController {
         //生成orderno
         proOrder.setOrderNo(Tool.createOrderno());
         proOrder.setOrderStatus("0");
-        proOrder.setProduct("2");
-        proOrder.setDate(Tool.getDate());
+        proOrder.setDate(Tool.getDateDetail());
         proOrderCustomRepository.save(proOrder);
         return proOrder.getOrderNo();
+    }
+    @RequestMapping(value = "api/delete",method=RequestMethod.POST,produces="application/json; charset=UTF-8")
+    public String delete( @RequestBody ProOrder  proOrder) throws IOException {
+        System.out.println(proOrder.getId());
+        proOrderCustomRepository.deleteById(Long.valueOf(proOrder.getId()));
+        return "true";
     }
     @RequestMapping(value = "api/getOrderList",method=RequestMethod.POST,produces="application/json; charset=UTF-8")
     public HashMap<String ,List<ProOrder>> getOrderList(@RequestBody String  reqParam) throws IOException {

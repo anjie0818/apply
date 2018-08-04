@@ -10,37 +10,71 @@ Mock.mock('api/getNewsList',{
 Mock.mock('api/login',{
     username:'anjie'
 })
+Mock.mock('test/delete',{
+  message:'true'
+})
 Mock.mock('test/getOrderList',{
-  "list": [
-    {
-      "orderId": "ddj123",
-      "product": "数据统计",
-      "version": "高级版",
-      "period": "1年",
-      "buyNum": 2,
-      "date": "2016-10-10",
-      "amount": "500元"
-    },
-    {
-      "orderId": "yuj583",
-      "product": "流量分析",
-      "version": "户外版",
-      "period": "3个月",
-      "buyNum": 1,
-      "date": "2016-5-2",
-      "amount": "2200元"
-    },
-    {
-      "orderId": "pmd201",
-      "product": "广告发布",
-      "version": "商铺版",
-      "period": "3年",
-      "buyNum": 12,
-      "date": "2016-8-3",
-      "amount": "7890元"
-    }
-  ]
-
+  "list" : [ {
+    "id" : 27,
+    "orderNo" : "DC2018080371260938",
+    "product" : "流量分析",
+    "buyType" : "0",
+    "buyTypeName" : "入门版",
+    "price" : "765",
+    "buyNumber" : "1",
+    "period" : "0",
+    "periodName" : "半年",
+    "version" : "0",
+    "versionName" : "客户版 ",
+    "bankId" : "501",
+    "orderStatus" :'0',
+    "date" : "2018-08-03"
+  }, {
+    "id" : 28,
+    "orderNo" : "DC2018080356719302",
+    "product" : "流量分析",
+    "buyType" : "2",
+    "buyTypeName" : "高级版",
+    "price" : "765",
+    "buyNumber" : "2",
+    "period" : "2",
+    "periodName" : "三年",
+    "version" : "0",
+    "versionName" : "客户版 ",
+    "bankId" : null,
+    "orderStatus" :'0',
+    "date" : "2018-08-03"
+  }, {
+    "id" : 29,
+    "orderNo" : "DC2018080393461208",
+    "product" : "流量分析",
+    "buyType" : "0",
+    "buyTypeName" : "入门版",
+    "price" : "765",
+    "buyNumber" : "1",
+    "period" : "0",
+    "periodName" : "半年",
+    "version" : "0",
+    "versionName" : "客户版 ",
+    "bankId" : "201",
+    "orderStatus" :'0',
+    "date" : "2018-08-03"
+  }, {
+    "id" : 30,
+    "orderNo" : "DC2018080338175640",
+    "product" : "流量分析",
+    "buyType" : "0",
+    "buyTypeName" : "入门版",
+    "price" : "765",
+    "buyNumber" : "1",
+    "period" : "0",
+    "periodName" : "半年",
+    "version" : "0",
+    "versionName" : "客户版 ",
+    "bankId" : "301",
+    "orderStatus" :'1',
+    "date" : "2018-08-03 14:53:34"
+  } ]
 })
 Mock.mock('api/testcreateOrder',{
   orderId:'DC201809010001'
