@@ -23,6 +23,14 @@
       </div>
       <div class="sales-board-line">
         <div class="sales-board-line-left">
+          适用地区：
+        </div>
+        <div class="sales-board-line-right">
+          <v-selection :selections="districts"></v-selection>
+        </div>
+      </div>
+      <div class="sales-board-line">
+        <div class="sales-board-line-left">
           有效时间：
         </div>
         <div class="sales-board-line-right">

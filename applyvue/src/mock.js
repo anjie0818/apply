@@ -17,7 +17,7 @@ Mock.mock('test/getOrderList',{
   "list" : [ {
     "id" : 27,
     "orderNo" : "DC2018080371260938",
-    "product" : "流量分析",
+    "product" : "analysis",
     "buyType" : "0",
     "buyTypeName" : "入门版",
     "price" : "765",
@@ -32,7 +32,7 @@ Mock.mock('test/getOrderList',{
   }, {
     "id" : 28,
     "orderNo" : "DC2018080356719302",
-    "product" : "流量分析",
+    "product" : "count",
     "buyType" : "2",
     "buyTypeName" : "高级版",
     "price" : "765",

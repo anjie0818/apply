@@ -37,16 +37,17 @@
           <td>{{ item.date }}</td>
           <td>{{ item.buyNumber }}</td>
           <td>{{ item.price }}</td>
-          <td>{{ item.orderStatus }}</td>
-          <td v-if="item.orderStatus == 1">
+          <td>{{ item.orderStatus==0?"待支付":"已付款" }}
+          </td>
+          <td v-if="item.orderStatus == 0">
             <div class="delete" @click="deleteOrder(item.id)" >
               删除
             </div>
-            <div class="delete" >
+            <div class="delete" @click="updateOrder(item.product,item.orderNo)" >
               修改
             </div>
           </td>
-          <td v-else-if="item.orderStatus ==0">
+          <td v-else-if="item.orderStatus ==1">
             <span>增加</span><span>查询</span>
           </td>
         </tr>
@@ -141,6 +142,10 @@ export default {
     }
   },
   methods: {
+    updateOrder(product,id){
+      //   直接调用$router.push 实现携带参数的跳转
+      this.$router.push({ name: product, params: { id: id }})
+    },
     deleteOrder( id){
       console.log(id);
       let reqParams = {
@@ -173,8 +178,8 @@ export default {
         startDate: this.startDate,
         endDate: this.endDate
       }
-//      axios.post('test/getOrderList', reqParams)
-      axios.post('/api/getOrderList', reqParams)
+      axios.post('test/getOrderList', reqParams)
+//      axios.post('/api/getOrderList', reqParams)
         .then((res) => {
         this.tableData = res.data.list
       }, (err) => {

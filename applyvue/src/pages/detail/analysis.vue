@@ -2,6 +2,7 @@
   <div class="sales-board">
     <div class="sales-board-intro">
       <h2>流量分析</h2>
+      {{orderNo}}
       <p>是指在获得网站访问量基本数据的情况下对有关数据进行统计、分析，从中发现用户访问网站的规律，并将这些规律与网络营销策略等相结合，从而发现目前网络营销活动中可能存在的问题，并为进一步修正或重新制定网络营销策略提供依据。当然这样的定义是站在网络营销管理的角度来考虑的</p>
     </div>
     <div class="sales-board-form">
@@ -131,11 +132,21 @@
       CheckOrder
     },
     mounted(){
-      this.computAnalysisPrice()
-      this.buyNum = 1
-      this.buyType = this.buyTypes[0]
-      this.versions = [this.versionList[0]]
-      this.period = this.periodList[0]
+      if(this.orderNo==null){
+        this.buyNum = 2
+        this.buyType = this.buyTypes[2]
+        this.versions = [this.versionList[0]]
+        this.period = this.periodList[0]
+        this.computAnalysisPrice()
+        console.log("nu1ll")
+      }
+      else{
+      this.buyNum = 22
+      this.buyType = this.buyTypes[1]
+      this.versions = [this.versionList[1]]
+      this.period = this.periodList[2]
+        console.log("have")
+      }
     },
     methods:{
       toShowPayDialog(){
@@ -158,7 +169,7 @@
           version:buyVersionArray.join(','),
           bankId:this.bankId,
           price:this.price,
-          product:"流量分析"
+          product:"analysis"
         }
         axios.post('/api/createOrder',reqParams)
           .then((res)=>{
@@ -212,10 +223,11 @@
     },
     data () {
       return {
+        orderNo:this.$route.params.id,
         isShowCheckDialog:false,
         isShowPayDailog:false,
         isPayDailog:false,
-        buyNum: 1,
+        buyNum: '',
         buyType: {},
         versions: [],
         period: {},
