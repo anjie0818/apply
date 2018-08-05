@@ -45,6 +45,7 @@
   import Dialog from './dialog'
   import LogForm from './logForm'
   import RegForm from './regForm'
+  import {eventBus} from '../eventBus'
   export default {
     components: {
       MyDialog: Dialog,
@@ -77,8 +78,9 @@
         this.username = data.username
       },
       clearComponentStatus () {
-//        eventBus.$emit('reset-status')
-//        // console.log(el)
+        //点击layout会触发reset-component事件
+        eventBus.$emit('reset-component')
+         console.log("reset-component")
       }
     }
   }

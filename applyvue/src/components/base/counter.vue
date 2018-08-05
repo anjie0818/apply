@@ -11,9 +11,14 @@
 <script>
 export default {
   props: {
+    numberVal:{
+      type:Number,
+      default:this.min
+    }
+    ,
     max: {
       type: Number,
-      default: 5
+      default: 50
     },
     min: {
       type: Number,
@@ -22,7 +27,7 @@ export default {
   },
   data () {
     return {
-      number: this.min
+      number:this.numberVal
     }
   },
   watch: {
@@ -55,6 +60,7 @@ export default {
         return
       }
       this.number ++
+      console.log(this.number+"dddddd")
     }
   }
 }

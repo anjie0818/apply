@@ -20,6 +20,12 @@ public class Tool {
         String dateNowStr = sdf.format(d);
         return dateNowStr;
     }
+    public static String getDateDetail(){
+        Date d = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String dateNowStr = sdf.format(d);
+        return dateNowStr;
+    }
     public static void main(String[] args) {
         System.out.println(Tool.createOrderno());
     }

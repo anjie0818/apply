@@ -26,16 +26,22 @@
 
 	<dependencies>
 		<!--本地配置jdbc库-->
-		<dependency>
-			<groupId>com.oracle</groupId>
-			<artifactId>ojdbc6</artifactId>
-			<version>11.2.0.2.0</version>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.oracle</groupId>-->
+			<!--<artifactId>ojdbc6</artifactId>-->
+			<!--<version>11.2.0.2.0</version>-->
+		<!--</dependency>-->
 		<!--java工具类-->
 		<dependency>
 			<groupId>com.google.guava</groupId>
 			<artifactId>guava</artifactId>
 			<version>18.0</version>
+		</dependency>
+		<!--配置热启动 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<optional>true</optional>
 		</dependency>
 		<!--jpa-->
 		<dependency>
@@ -132,6 +138,7 @@
 					<fork>true</fork>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 

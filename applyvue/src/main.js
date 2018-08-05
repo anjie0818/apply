@@ -36,7 +36,11 @@ let router=new VueRouter({
               {path:'analysis',component:DetailAna},
               {path:'count',component:DetailCou},
               {path:'forecast',component:DetailFor},
-              {path:'publish',component:DetailPub}
+              {path:'publish',component:DetailPub},
+              {path:'analysis/:id',name:'analysis',component:DetailAna},
+              {path:'count/:id',name:'count',component:DetailCou},
+              {path:'forecast/:id',name:'forecast',component:DetailFor},
+              {path:'publish/:id',name:'publish',component:DetailPub}
             ]
           }
        ]

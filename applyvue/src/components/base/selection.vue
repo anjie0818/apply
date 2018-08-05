@@ -13,8 +13,13 @@
 </template>
 
 <script>
+  import {eventBus} from '../../eventBus'
 export default {
   props: {
+    nowIndexVal:{
+      type:Number,
+      default: 0
+    },
     selections: {
       type: Array,
       default: [{
@@ -26,16 +31,24 @@ export default {
   data () {
     return {
       isDrop: false,
-      nowIndex: 0
+      nowIndex:this.nowIndexVal
     }
   },
+  mounted(){
+      eventBus.$on('reset-component',()=>{
+        this.isDrop=false
+      })
+  },
   methods: {
-    toggleDrop(){
+    toggleDrop(event){
+      //event阻止事件冒泡
+      event.stopPropagation();
+      eventBus.$emit('reset-component')
       this.isDrop=true;
     },
     chooseSelection (index) {
       this.nowIndex = index
-      this.isDrop=false
+//      this.isDrop=false
       this.$emit('on-change', this.selections[this.nowIndex])
     }
   }
