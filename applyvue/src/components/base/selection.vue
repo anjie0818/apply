@@ -16,6 +16,10 @@
   import {eventBus} from '../../eventBus'
 export default {
   props: {
+    nowIndexVal:{
+      type:Number,
+      default: 0
+    },
     selections: {
       type: Array,
       default: [{
@@ -27,7 +31,7 @@ export default {
   data () {
     return {
       isDrop: false,
-      nowIndex: 0
+      nowIndex:this.nowIndexVal
     }
   },
   mounted(){
