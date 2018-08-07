@@ -44,5 +44,13 @@ public class ProOrderController {
         ordersmap.put("list",orderWapper);
         return ordersmap;
     }
+    @RequestMapping(value = "api/getOrderByOrderNo",method=RequestMethod.POST,produces="application/json; charset=UTF-8")
+    public HashMap<String ,ProOrder> getOrderByOrderId(@RequestBody ProOrder  proOrder) throws IOException {
+
+        ProOrder proOrderRes = proOrderCustomRepository.findByOrderNo(proOrder.getOrderNo());
+        HashMap<String ,ProOrder> ordersmap=new HashMap<>();
+        ordersmap.put("proOrder",proOrderRes);
+        return ordersmap;
+    }
 
 }

@@ -1,6 +1,5 @@
 package com.anjie.apply.tool;
 
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

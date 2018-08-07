@@ -14,6 +14,10 @@
 <script>
 export default {
   props: {
+    nowIndexVal:{
+      type:Number,
+      default: 0
+    },
     selections: {
       type: Array,
       default: [{
@@ -24,7 +28,7 @@ export default {
   },
   data () {
     return {
-      nowIndex: 0
+      nowIndex: this.nowIndexVal
     }
   },
   methods: {

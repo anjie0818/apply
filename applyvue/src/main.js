@@ -1,5 +1,6 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import $ from 'jquery'
 import Vue from 'vue'
 import Layout from './components/Layout.vue'
 import VueRouter from 'vue-router'
@@ -12,6 +13,7 @@ import DetailFor from './pages/detail/forecast.vue'
 import DetailPub from './pages/detail/publish.vue'
 import orderList from './pages/orderList'
 import mock from './mock.js'
+
 Vue.use(VueRouter)
 let router=new VueRouter({
         mode:'history',

@@ -15,6 +15,10 @@
 import _ from 'lodash'
 export default {
   props: {
+    nowIndexesVal:{
+      type:Array,
+      default:[1]
+    },
     selections: {
       type: Array,
       default: [{
@@ -25,7 +29,7 @@ export default {
   },
   data () {
     return {
-      nowIndexes: [0]
+      nowIndexes: this.nowIndexesVal
     }
   },
   methods: {

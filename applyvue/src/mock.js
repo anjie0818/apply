@@ -13,6 +13,21 @@ Mock.mock('api/login',{
 Mock.mock('test/delete',{
   message:'true'
 })
+Mock.mock('test/getOrderByOrderNo',{
+  "proOrder": {
+    "id": 37,
+    "orderNo": "DC2018080672806945",
+    "product": "analysis",
+    "buyType": "0",
+    "price": "765",
+    "buyNumber": "23",
+    "period": "2",
+    "version": "1,2",
+    "bankId": "501",
+    "orderStatus": "0",
+    "date": "2018-08-06 11:19:16"
+  }
+})
 Mock.mock('test/getOrderList',{
   "list" : [ {
     "id" : 27,
@@ -32,7 +47,7 @@ Mock.mock('test/getOrderList',{
   }, {
     "id" : 28,
     "orderNo" : "DC2018080356719302",
-    "product" : "count",
+    "product" : "analysis",
     "buyType" : "2",
     "buyTypeName" : "高级版",
     "price" : "765",
@@ -47,7 +62,7 @@ Mock.mock('test/getOrderList',{
   }, {
     "id" : 29,
     "orderNo" : "DC2018080393461208",
-    "product" : "流量分析",
+    "product" : "analysis",
     "buyType" : "0",
     "buyTypeName" : "入门版",
     "price" : "765",
@@ -62,7 +77,7 @@ Mock.mock('test/getOrderList',{
   }, {
     "id" : 30,
     "orderNo" : "DC2018080338175640",
-    "product" : "流量分析",
+    "product" : "analysis",
     "buyType" : "0",
     "buyTypeName" : "入门版",
     "price" : "765",

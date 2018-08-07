@@ -21,4 +21,5 @@ public interface ProOrderCustomRepository extends CustomerRepository<ProOrder,Lo
     ProOrder findByVersionAndOrderStatus(String version,String orderStatus);
     @Query("select p from ProOrder p where p.version=:version and p.orderStatus=:orderStatus")
     ProOrder withVersionAndOrderStatus(@Param("version") String version,@Param("orderStatus")String orderStatus);
+    ProOrder findByOrderNo (String orderNo);
 }

@@ -10,7 +10,7 @@
           购买数量：
         </div>
         <div class="sales-board-line-right">
-          <v-counter @on-change="onParamChange('buyNum',$event)" :numberVal="buyNum"></v-counter>
+          <v-counter @on-change="onParamChange('buyNum',$event)" :numberVal="buyNumU"></v-counter>
         </div>
       </div>
       <div class="sales-board-line">
@@ -18,7 +18,7 @@
           产品类型：
         </div>
         <div class="sales-board-line-right">
-          <v-selection :selections="buyTypes" :nowIndexVal="anjie"@on-change="onParamChange('buyType',$event)" ></v-selection>
+          <v-selection :selections="buyTypes" :nowIndexVal="buyType.value"@on-change="onParamChange('buyType',$event)" ></v-selection>
         </div>
       </div>
       <div class="sales-board-line">
@@ -26,7 +26,7 @@
           有效时间：
         </div>
         <div class="sales-board-line-right">
-          <v-chooser :selections="periodList" @on-change="onParamChange('period',$event)"></v-chooser>
+          <v-chooser :selections="periodList" :nowIndexVal="period.value" @on-change="onParamChange('period',$event)"></v-chooser>
         </div>
       </div>
       <div class="sales-board-line">
@@ -34,7 +34,7 @@
           产品版本：
         </div>
         <div class="sales-board-line-right">
-          <v-m-chooser :selections="versionList" @on-change="onParamChange('versions',$event)"></v-m-chooser>
+          <v-m-chooser :selections="versionList" :nowIndexesVal="nowIndexes" @on-change="onParamChange('versions',$event)"></v-m-chooser>
         </div>
       </div>
       <div class="sales-board-line">
@@ -110,7 +110,8 @@
   </div>
 </template>
 
-<script>
+<script >
+
   import BankChooser from '../../components/base/bankChooser.vue'
   import axios from 'axios'
   import _ from 'lodash'
@@ -120,6 +121,8 @@
   import VMChooser from '../../components/base/multiplyChooser'
   import VChooser from '../../components/base/chooser'
   import CheckOrder from '../../components/checkOrder.vue'
+
+// 执行代码});
   export default {
     components: {
       VCounter,
@@ -130,26 +133,42 @@
       BankChooser,
       CheckOrder
     },
-    created(){
-      this.anjie=2
-      if(this.orderNo==null){
-        this.buyNum = 4
 
-        this.buyType = this.buyTypes[2]
-        this.versions = [this.versionList[0]]
-        this.period = this.periodList[0]
-        this.computAnalysisPrice()
-        console.log(this.buyType.value+"------")
-      }
-      else{
-      this.buyNum = 8
-      this.buyType = this.buyTypes[2]
-      this.versions = [this.versionList[1]]
-      this.period = this.periodList[2]
-        console.log(this.buyType.value+"-----")
+    created(){
+
+        this.getData()
+
+
+
+    },
+    watch:{
+      buyNum:function (newval,oldval) {
+        console.log(oldval+"dd"+newval)
+        console.log(this.buyNum)
+        this.buyNumU=newval
+        console.log(this.buyNumU)
+
+
       }
     },
     methods:{
+      getData(){
+        axios
+          .get("test/getOrderByOrderNo", {
+            params: {
+              id: this.$route.query.id
+            }
+          })
+          .then(response => {
+            this.buyNum = new Number( response.data.proOrder.buyNumber)
+            console.log("ajax修改"+this.buyNum)
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        console.log("暂存单修改"+this.buyNum)
+
+      },
       toShowPayDialog(){
         this.isShowPayDailog=true
       },
@@ -186,6 +205,7 @@
             //支付失败?失败如何处理
           })
       },
+
       onChangeBanks(bankObj){
         this.bankId=bankObj.id
         console.log(this.bankId)
@@ -202,10 +222,12 @@
         this.computAnalysisPrice()
       },
       computAnalysisPrice(){
+
         let buyVersionArray=_.map( this.versions,(item)=>{
           return item.value
           }
         )
+
         let reqParams={
           buyNumber:this.buyNum,
           buyType:this.buyType.value,
@@ -224,12 +246,14 @@
     },
     data () {
       return {
-        anjie:1,
-        orderNo:this.$route.params.id,
+        proOrder:{},
+        nowIndexes:[],
+        orderNo:null,
         isShowCheckDialog:false,
         isShowPayDailog:false,
         isPayDailog:false,
         buyNum: 0,
+        buyNumU:0,
         buyType: {},
         versions: [],
         period: {},
@@ -283,7 +307,6 @@
         isShowErrDialog: false
       }
     },
-
   }
 </script>
 
