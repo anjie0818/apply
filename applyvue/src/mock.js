@@ -20,7 +20,7 @@ Mock.mock('test/getOrderByOrderNo',{
     "product": "analysis",
     "buyType": "0",
     "price": "765",
-    "buyNumber": "23",
+    "buyNumber": "33",
     "period": "2",
     "version": "1,2",
     "bankId": "501",

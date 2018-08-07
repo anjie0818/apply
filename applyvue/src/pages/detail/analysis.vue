@@ -10,7 +10,7 @@
           购买数量：
         </div>
         <div class="sales-board-line-right">
-          <v-counter @on-change="onParamChange('buyNum',$event)" :numberVal="buyNumU"></v-counter>
+          <v-counter v-if='buyNum' @on-change="onParamChange('buyNum',$event)" :numberVal="buyNum"></v-counter>
         </div>
       </div>
       <div class="sales-board-line">
@@ -122,7 +122,6 @@
   import VChooser from '../../components/base/chooser'
   import CheckOrder from '../../components/checkOrder.vue'
 
-// 执行代码});
   export default {
     components: {
       VCounter,
@@ -133,26 +132,15 @@
       BankChooser,
       CheckOrder
     },
-
     created(){
+      this.orderNo=this.$route.query.id
 
-        this.getData()
-
-
+      this.findOrderDetail()
 
     },
-    watch:{
-      buyNum:function (newval,oldval) {
-        console.log(oldval+"dd"+newval)
-        console.log(this.buyNum)
-        this.buyNumU=newval
-        console.log(this.buyNumU)
 
-
-      }
-    },
     methods:{
-      getData(){
+      findOrderDetail(){
         axios
           .get("test/getOrderByOrderNo", {
             params: {
@@ -160,7 +148,7 @@
             }
           })
           .then(response => {
-            this.buyNum = new Number( response.data.proOrder.buyNumber)
+            this.buyNum= new Number( response.data.proOrder.buyNumber)
             console.log("ajax修改"+this.buyNum)
           })
           .catch(error => {
@@ -247,16 +235,21 @@
     data () {
       return {
         proOrder:{},
-        nowIndexes:[],
+        nowIndexes:[1],
         orderNo:null,
         isShowCheckDialog:false,
         isShowPayDailog:false,
         isPayDailog:false,
-        buyNum: 0,
-        buyNumU:0,
-        buyType: {},
-        versions: [],
-        period: {},
+        buyNum: null,
+        buyType: {
+          label: '入门版',
+          value: 0
+        },
+        versions: [1],
+        period: {
+          label: '半年',
+          value: 0
+        },
         price: 0,
         versionList: [
           {

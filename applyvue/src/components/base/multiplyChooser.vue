@@ -17,7 +17,7 @@ export default {
   props: {
     nowIndexesVal:{
       type:Array,
-      default:[1]
+      default:[2]
     },
     selections: {
       type: Array,
