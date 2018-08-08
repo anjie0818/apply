@@ -19,7 +19,8 @@ public class SysUser implements UserDetails{//实现此接口，注册SysUser为
     private String password;
     private String nickname;
     private String email;
-    private String enabled;
+    //账户是否被禁用
+    private boolean enabled;
     private String phone;
     public Long getId() {
         return id;
@@ -53,11 +54,11 @@ public class SysUser implements UserDetails{//实现此接口，注册SysUser为
         this.email = email;
     }
 
-    public String getEnabled() {
+    public boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(String enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -114,31 +115,31 @@ public class SysUser implements UserDetails{//实现此接口，注册SysUser为
 
     @Override
     public String getPassword() {
-        return null;
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return username;
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return enabled;
     }
 }

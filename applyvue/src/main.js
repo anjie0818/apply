@@ -1,5 +1,8 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import $ from 'jquery'
 import Vue from 'vue'
 import Layout from './components/Layout.vue'
@@ -12,8 +15,10 @@ import DetailCou from './pages/detail/count.vue'
 import DetailFor from './pages/detail/forecast.vue'
 import DetailPub from './pages/detail/publish.vue'
 import orderList from './pages/orderList'
+import login from './pages/Login.vue'
 import mock from './mock.js'
 
+Vue.use(ElementUI)
 Vue.use(VueRouter)
 let router=new VueRouter({
         mode:'history',
@@ -21,6 +26,10 @@ let router=new VueRouter({
           {
             path:'/',
             component:IndexPage
+          },
+          {
+            path:'/ui/login',
+            component:login
           },
           {
             path:'/test',
