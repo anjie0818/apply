@@ -25,10 +25,10 @@ let router=new VueRouter({
         routes:[
           {
             path:'/',
-            component:IndexPage
+            component:login
           },
           {
-            path:'/ui/login',
+            path:'/login',
             component:login
           },
           {
